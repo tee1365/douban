@@ -4,7 +4,7 @@ import App from "./js/App";
 import {BrowserRouter} from "react-router-dom";
 
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter basename="/douban/build/">
     <App />
   </BrowserRouter>,
   document.getElementById("root")
