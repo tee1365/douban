@@ -29,9 +29,6 @@ class App extends Component {
   }
 
   searchMovie() {
-    // let stateCopy = JSON.parse(JSON.stringify(this.state));
-    // stateCopy.query = "";
-    // this.setState(stateCopy);
     window.location.reload();
   }
 

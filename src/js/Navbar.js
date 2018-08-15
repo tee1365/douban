@@ -16,12 +16,17 @@ class Navbar extends Component {
             </li>
             <li className="nav-item mr-3">
               <Link className="nav-link" to="/top">
-                top
+                Top250
               </Link>
             </li>
             <li className="nav-item mr-3">
               <Link className="nav-link" to="/us">
-                us
+                US Box
+              </Link>
+            </li>
+            <li className="nav-item mr-3">
+              <Link className="nav-link" to="/weekly">
+                Weekly
               </Link>
             </li>
           </ul>
