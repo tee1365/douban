@@ -6,31 +6,58 @@ class USPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movieArray: []
+      movieArray: [],
+      date: "",
+      isSecond: false
     };
+  }
+
+  componentDidMount() {
     this.fetchData();
   }
 
   fetchData() {
     let baseUrl = "https://api.douban.com";
-    let url = baseUrl + "/v2/movie/us_box";
+    let apikey = "apikey=0df993c66c0c636e29ecbb5344252a4a";
+    let url = baseUrl + "/v2/movie/us_box?" + apikey;
     fetchJsonp(url)
       .then(response => response.json())
       .then(data => {
         let details = data.subjects;
+        let date = data.date;
         let stateCopy = JSON.parse(JSON.stringify(this.state));
         stateCopy.movieArray.push(...details);
-        this.setState(stateCopy);
+        // stateCopy.date = date.substring(0, date.indexOf("-")).trim();
+        stateCopy.date = date;
+        stateCopy.isSecond = true;
+        this.setState(stateCopy, () => {
+          console.log(this.state);
+        });
       });
   }
 
   render() {
-    let list = this.state.movieArray
-      .map(v => v.subject)
-      .map((detail, index) => <MovieItem key={index} movieDetails={detail} />);
+    let list = this.state.movieArray.map((value, index) => (
+      <MovieItem
+        key={index}
+        index={index}
+        movieDetails={value.subject}
+        filter="us"
+        box={"$ " + value.box.toLocaleString()}
+      />
+    ));
     return (
       <div className="container">
-        <ul>{list}</ul>
+        {this.state.isSecond ? (
+          <div>
+            {" "}
+            <p className="display-4 text-center my-5">
+              北美周末票房榜(
+              {this.state.date})
+            </p>
+            <ul>{list}</ul>
+          </div>
+        ) : null}
       </div>
     );
   }

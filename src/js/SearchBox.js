@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 const SearchBox = props => {
-  let queryUrl = "/search?q=" + props.query;
+  let queryUrl = "/movie/" + props.query;
 
   return (
     <div className="content">
@@ -16,13 +16,15 @@ const SearchBox = props => {
           }}
         />
         <div className="input-group-append">
-          <button
-            className="btn btn-secondary"
-            type="button"
-            onClick={props.searchMovie.bind(this)}
-          >
-            <Link className="queryButton" to={queryUrl}>search</Link>
-          </button>
+          <Link className="queryButton" to={queryUrl}>
+            <button
+              className="btn btn-secondary"
+              type="button"
+              onClick={props.searchMovie.bind(this)}
+            >
+              search
+            </button>
+          </Link>
         </div>
       </div>
     </div>

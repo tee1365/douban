@@ -29,7 +29,7 @@ class App extends Component {
   }
 
   searchMovie() {
-    window.location.reload();
+    // window.location.reload();
   }
 
   render() {

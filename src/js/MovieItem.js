@@ -2,30 +2,46 @@ import React from "react";
 import {Link} from "react-router-dom";
 import "../css/MovieItem.css";
 
+/*
+props
+  index
+  movieDetails
+*/
+
 const MovieItem = props => (
   <li className="row border-bottom">
-    <img
-      className="float-md-left mx-auto my-3 image"
-      alt=""
-      src={props.movieDetails.images.small}
-    />
-    <div className="details col-md-9 my-3">
-      <h2>
-        <Link to={"/details?id=" + props.movieDetails.id}>
+    <p className="display-4 col-md-2">{props.index + 1 + "."}</p>
+    <Link to={"/details?id=" + props.movieDetails.id} className="col-md-3">
+      <img
+        className="float-md-left mx-auto my-3 image"
+        alt=""
+        src={props.movieDetails.images.small}
+      />
+    </Link>
+    <div className="details col-md-7 my-3">
+      <Link to={"/details?id=" + props.movieDetails.id}>
+        <h2 className="mb-4">
           {props.movieDetails.title === props.movieDetails.original_title
             ? props.movieDetails.title
             : props.movieDetails.title +
               "(" +
               props.movieDetails.original_title +
               ")"}
-        </Link>
-      </h2>
-      <p>{props.movieDetails.year + "/" + props.movieDetails.rating.average}</p>
+        </h2>
+      </Link>
       <p>
-        {"导演: " + props.movieDetails.directors.map(v => v.name).join(" ")}
+        {props.movieDetails.year +
+          " / " +
+          props.movieDetails.rating.average +
+          " / " +
+          props.movieDetails.durations.join(" / ")}
       </p>
-      <p>{"主演: " + props.movieDetails.casts.map(v => v.name).join(" ")}</p>
+      <p>
+        {"导演: " + props.movieDetails.directors.map(v => v.name).join(" / ")}
+      </p>
+      <p>{"主演: " + props.movieDetails.casts.map(v => v.name).join(" / ")}</p>
       <p>{props.movieDetails.genres.join(" ")}</p>
+      {props.filter === "us" ? <p>{"票房：" + props.box}</p> : null}
     </div>
   </li>
 );

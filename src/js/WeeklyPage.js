@@ -6,8 +6,12 @@ class WeeklyPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movieArray: []
+      movieArray: [],
+      isSecond: false
     };
+  }
+
+  componentDidMount() {
     this.fetchData();
   }
 
@@ -21,6 +25,7 @@ class WeeklyPage extends Component {
         let details = data.subjects;
         let stateCopy = JSON.parse(JSON.stringify(this.state));
         stateCopy.movieArray.push(...details);
+        stateCopy.isSecond = true;
         this.setState(stateCopy);
       });
   }
@@ -28,10 +33,17 @@ class WeeklyPage extends Component {
   render() {
     let list = this.state.movieArray
       .map(v => v.subject)
-      .map((detail, index) => <MovieItem key={index} movieDetails={detail} />);
+      .map((detail, index) => (
+        <MovieItem key={index} index={index} movieDetails={detail} />
+      ));
     return (
       <div className="container">
-        <ul>{list}</ul>
+        {this.state.isSecond ? (
+          <div>
+            <p className="display-4 text-center my-5">一周口碑榜</p>
+            <ul>{list}</ul>
+          </div>
+        ) : null}
       </div>
     );
   }

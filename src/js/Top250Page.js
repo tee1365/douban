@@ -23,15 +23,20 @@ class Top250Page extends Component {
     this.state = {
       pageNumber: 0,
       movieArray: [],
-      isAll: false
+      isAll: false,
+      isSecond: false
     };
+  }
+
+  componentDidMount() {
     this.fetchData();
   }
 
   fetchData() {
     let baseUrl = "https://api.douban.com";
     let start = "?start=" + this.state.pageNumber * count + "&count=" + count;
-    let url = baseUrl + "/v2/movie/top250" + start;
+    let apikey = "apikey=0df993c66c0c636e29ecbb5344252a4a";
+    let url = baseUrl + "/v2/movie/top250" + start + "&" + apikey;
     fetchJsonp(url)
       .then(response => response.json())
       .then(data => {
@@ -43,30 +48,36 @@ class Top250Page extends Component {
         if ((this.state.pageNumber + 1) * count > total) {
           stateCopy.isAll = true;
         }
+        stateCopy.isSecond = true;
         this.setState(stateCopy);
       });
   }
 
   render() {
     let list = this.state.movieArray.map((detail, index) => (
-      <MovieItem key={index} movieDetails={detail} />
+      <MovieItem key={index} index={index} movieDetails={detail} filter="top" />
     ));
     return (
       <div className="container">
-        <ul>{list}</ul>
-        <div className="row">
-          {this.state.isAll ? (
-            <p className="mx-auto">以上为全部搜索结果</p>
-          ) : (
-            <button
-              type="button"
-              className="btn btn-primary mb-4 mx-auto"
-              onClick={this.fetchData.bind(this)}
-            >
-              加载更多
-            </button>
-          )}
-        </div>
+        {this.state.isSecond ? (
+          <div>
+            <p className="display-4 text-center my-5">豆瓣TOP250榜单</p>
+            <ul>{list}</ul>
+            <div className="row">
+              {this.state.isAll ? (
+                <p className="mx-auto">以上为全部搜索结果</p>
+              ) : (
+                <button
+                  type="button"
+                  className="btn btn-primary mb-4 mx-auto"
+                  onClick={this.fetchData.bind(this)}
+                >
+                  加载更多
+                </button>
+              )}
+            </div>
+          </div>
+        ) : null}
       </div>
     );
   }

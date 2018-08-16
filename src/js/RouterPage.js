@@ -14,7 +14,7 @@ const RouterPage = props => {
         <Route exact path="/" component={HomePage} />
         <Route path="/top" component={Top250Page} />
         <Route path="/us" component={USPage} />
-        <Route path="/search" component={SearchPage} />
+        <Route path="/movie/:query" component={SearchPage} />
         <Route path="/weekly" component={WeeklyPage} />
         <Route path="/details" component={DetailsPage} />
       </Switch>
