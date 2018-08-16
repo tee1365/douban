@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import MovieItem from "./MovieItem";
+import WaitingPage from "./WaitingPage";
 import fetchJsonp from "fetch-jsonp";
 
 const count = 10;
@@ -80,7 +81,7 @@ class SearchPage extends Component {
               )}
             </div>
           </div>
-        ) : null}
+        ) : <WaitingPage />}
       </div>
     );
   }

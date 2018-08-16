@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import MovieItem from "./MovieItem";
+import WaitingPage from "./WaitingPage";
 import fetchJsonp from "fetch-jsonp";
 
 class WeeklyPage extends Component {
@@ -43,7 +44,9 @@ class WeeklyPage extends Component {
             <p className="display-4 text-center my-5">一周口碑榜</p>
             <ul>{list}</ul>
           </div>
-        ) : null}
+        ) : (
+          <WaitingPage />
+        )}
       </div>
     );
   }

@@ -1,5 +1,8 @@
 `https://tee1365.github.io/douban/build`
 
+React数据获取为什么一定要在componentDidMount里面调用？
+`https://segmentfault.com/q/1010000008133309`
+
 ## 问题
 
 1.  搜索页面无法重置  

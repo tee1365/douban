@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import MovieItem from "./MovieItem";
+import WaitingPage from "./WaitingPage";
 import fetchJsonp from "fetch-jsonp";
 
 class USPage extends Component {
@@ -57,7 +58,9 @@ class USPage extends Component {
             </p>
             <ul>{list}</ul>
           </div>
-        ) : null}
+        ) : (
+          <WaitingPage />
+        )}
       </div>
     );
   }
