@@ -1,6 +1,9 @@
 import React, {Component} from "react";
 import fetchJsonp from "fetch-jsonp";
 import DetailsPageDescription from "./DetailsPageDescription";
+import WaitingPage from "./WaitingPage";
+import CommentPanel from "./CommentPanel";
+import ReviewPanel from "./ReviewPanel"
 import "../css/DetailsPage.css";
 
 /*
@@ -51,15 +54,21 @@ class DetailsPage extends Component {
     return (
       <div className="container">
         {this.state.isSecond ? (
-          <div className="row mt-5">
-            <img
-              className="col-xl-3 poster mx-auto mb-5"
-              src={this.state.movieDetails.images.large}
-              alt=""
-            />
-            <DetailsPageDescription movieDetails={this.state.movieDetails} />
+          <div>
+            <div className="row mt-5">
+              <img
+                className="col-xl-3 poster mx-auto mb-5"
+                src={this.state.movieDetails.images.large}
+                alt=""
+              />
+              <DetailsPageDescription movieDetails={this.state.movieDetails} />
+            </div>
+            <CommentPanel movieDetails={this.state.movieDetails} />
+            <ReviewPanel movieDetails={this.state.movieDetails} />
           </div>
-        ) : null}
+        ) : (
+          <WaitingPage />
+        )}
       </div>
     );
   }
