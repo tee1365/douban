@@ -32,7 +32,6 @@ class Navbar extends Component {
           </ul>
           <SearchBox
             queryChange={this.props.queryChange.bind(this)}
-            searchMovie={this.props.searchMovie.bind(this)}
             query={this.props.query}
           />
         </nav>

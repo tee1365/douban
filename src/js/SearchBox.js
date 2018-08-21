@@ -17,11 +17,7 @@ const SearchBox = props => {
         />
         <div className="input-group-append">
           <Link className="queryButton" to={queryUrl}>
-            <button
-              className="btn btn-secondary"
-              type="button"
-              onClick={props.searchMovie.bind(this)}
-            >
+            <button className="btn btn-secondary" type="button">
               search
             </button>
           </Link>

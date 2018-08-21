@@ -3,6 +3,8 @@
 React数据获取为什么一定要在componentDidMount里面调用？
 `https://segmentfault.com/q/1010000008133309`
 
+使用svg图标时xlink:href需要写成xlinkHref
+
 ## 问题
 
 1.  搜索页面无法重置  
@@ -20,6 +22,8 @@ React数据获取为什么一定要在componentDidMount里面调用？
 
 ## todo
 
-1.  MovieItem 根据filter添加细节
+1.  MovieItem 根据filter添加细节 -
 
-2.  右下角返回顶部，返回上一页
+2.  右下角返回顶部，返回上一页 -
+
+3.  使用一种适合react的css

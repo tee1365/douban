@@ -41,7 +41,7 @@ class WeeklyPage extends Component {
       <div className="container">
         {this.state.isSecond ? (
           <div>
-            <p className="display-4 text-center my-5">一周口碑榜</p>
+            <p className="display-4 text-center py-5">一周口碑榜</p>
             <ul>{list}</ul>
           </div>
         ) : (

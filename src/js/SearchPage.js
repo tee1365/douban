@@ -73,7 +73,7 @@ class SearchPage extends Component {
               ) : (
                 <button
                   type="button"
-                  className="btn btn-primary mb-4 mx-auto"
+                  className="btn btn-primary my-4 mx-auto"
                   onClick={this.fetchData.bind(this)}
                 >
                   加载更多
@@ -81,7 +81,9 @@ class SearchPage extends Component {
               )}
             </div>
           </div>
-        ) : <WaitingPage />}
+        ) : (
+          <WaitingPage />
+        )}
       </div>
     );
   }

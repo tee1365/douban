@@ -31,9 +31,7 @@ class USPage extends Component {
         // stateCopy.date = date.substring(0, date.indexOf("-")).trim();
         stateCopy.date = date;
         stateCopy.isSecond = true;
-        this.setState(stateCopy, () => {
-          console.log(this.state);
-        });
+        this.setState(stateCopy);
       });
   }
 
@@ -52,7 +50,7 @@ class USPage extends Component {
         {this.state.isSecond ? (
           <div>
             {" "}
-            <p className="display-4 text-center my-5">
+            <p className="display-4 text-center py-5">
               北美周末票房榜(
               {this.state.date})
             </p>

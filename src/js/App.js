@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import RouterPage from "./RouterPage";
 import Navbar from "./Navbar";
+import Tools from "./Tools";
+import "../css/app.css";
 
 /*
 APP
@@ -28,19 +30,15 @@ class App extends Component {
     this.setState(stateCopy);
   }
 
-  searchMovie() {
-    // window.location.reload();
-  }
-
   render() {
     return (
       <div className="App">
         <Navbar
           queryChange={this.queryChange.bind(this)}
-          searchMovie={this.searchMovie.bind(this)}
           query={this.state.query}
         />
         <RouterPage />
+        <Tools />
       </div>
     );
   }

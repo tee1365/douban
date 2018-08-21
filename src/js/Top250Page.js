@@ -62,7 +62,7 @@ class Top250Page extends Component {
       <div className="container">
         {this.state.isSecond ? (
           <div>
-            <p className="display-4 text-center my-5">豆瓣TOP250榜单</p>
+            <p className="display-4 text-center py-5">豆瓣TOP250榜单</p>
             <ul>{list}</ul>
             <div className="row">
               {this.state.isAll ? (
@@ -70,7 +70,7 @@ class Top250Page extends Component {
               ) : (
                 <button
                   type="button"
-                  className="btn btn-primary mb-4 mx-auto"
+                  className="btn btn-primary my-4 mx-auto"
                   onClick={this.fetchData.bind(this)}
                 >
                   加载更多

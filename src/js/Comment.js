@@ -7,7 +7,7 @@ const Comment = props => (
       <img
         src={props.details.author.avatar}
         alt=""
-        className="rounded-circle"
+        className="rounded-circle ml-4"
       />
       <span className="col-sm-3 align-self-center">
         {props.details.author.name}
