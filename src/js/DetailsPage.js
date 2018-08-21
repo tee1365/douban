@@ -4,6 +4,8 @@ import DetailsPageDescription from "./DetailsPageDescription";
 import WaitingPage from "./WaitingPage";
 import CommentPanel from "./CommentPanel";
 import ReviewPanel from "./ReviewPanel";
+import AllComments from "./AllComments";
+import {Switch, Route} from "react-router-dom";
 import "../css/DetailsPage.css";
 
 /*
@@ -40,7 +42,7 @@ class DetailsPage extends Component {
   fetchData() {
     let baseUrl = "https://api.douban.com";
     let key = "apikey=0df993c66c0c636e29ecbb5344252a4a";
-    let id = window.location.search.replace(/\D+/g, "");
+    let id = this.props.match.params.query;
     let url = baseUrl + "/v2/movie/subject/" + id + "?" + key;
     fetchJsonp(url)
       .then(response => response.json())
@@ -55,16 +57,31 @@ class DetailsPage extends Component {
       <div className="container">
         {this.state.isSecond ? (
           <div>
-            <div className="row pt-5">
-              <img
-                className="col-xl-3 poster mx-auto mb-5"
-                src={this.state.movieDetails.images.large}
-                alt=""
+            <DetailsPageDescription movieDetails={this.state.movieDetails} />
+            <Switch>
+              <Route
+                path={this.props.match.path}
+                exact
+                render={() => (
+                  <div>
+                    <CommentPanel
+                      movieDetails={this.state.movieDetails}
+                      filter={"SHORT"}
+                    />
+                    <ReviewPanel
+                      movieDetails={this.state.movieDetails}
+                      filter={"SHORT"}
+                    />
+                  </div>
+                )}
               />
-              <DetailsPageDescription movieDetails={this.state.movieDetails} />
-            </div>
-            <CommentPanel movieDetails={this.state.movieDetails} />
-            <ReviewPanel movieDetails={this.state.movieDetails} />
+              <Route
+                path={`${this.props.match.path}/comments`}
+                render={() => (
+                  <AllComments movieDetails={this.state.movieDetails} />
+                )}
+              />
+            </Switch>
           </div>
         ) : (
           <WaitingPage />

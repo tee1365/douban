@@ -16,7 +16,7 @@ const RouterPage = props => {
         <Route path="/us" component={USPage} />
         <Route path="/movie/:query" component={SearchPage} />
         <Route path="/weekly" component={WeeklyPage} />
-        <Route path="/details" component={DetailsPage} />
+        <Route path="/details/:query" component={DetailsPage} />
       </Switch>
     </main>
   );

@@ -19,7 +19,7 @@ const MovieItem = props => (
       />
     </Link>
     <div className="details col-md-7 my-3">
-      <Link to={"/details?id=" + props.movieDetails.id}>
+      <Link to={"/details/" + props.movieDetails.id}>
         <h2 className="mb-4">
           {props.movieDetails.title === props.movieDetails.original_title
             ? props.movieDetails.title
