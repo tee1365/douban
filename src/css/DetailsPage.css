@@ -6,3 +6,8 @@
 .non-header {
   color: #555;
 }
+
+.foldAndUnfold {
+  color: #007bff;
+  cursor: pointer;
+}

@@ -6,6 +6,7 @@ import USPage from "./USPage";
 import SearchPage from "./SearchPage";
 import WeeklyPage from "./WeeklyPage";
 import DetailsPage from "./DetailsPage";
+import CelebrityPage from "./CelebrityPage";
 
 const RouterPage = props => {
   return (
@@ -17,6 +18,7 @@ const RouterPage = props => {
         <Route path="/movie/:query" component={SearchPage} />
         <Route path="/weekly" component={WeeklyPage} />
         <Route path="/details/:query" component={DetailsPage} />
+        <Route path="/celebrity/:query" component={CelebrityPage} />
       </Switch>
     </main>
   );

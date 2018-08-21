@@ -4,7 +4,6 @@ import DetailsPageDescription from "./DetailsPageDescription";
 import WaitingPage from "./WaitingPage";
 import CommentPanel from "./CommentPanel";
 import ReviewPanel from "./ReviewPanel";
-import AllComments from "./AllComments";
 import {Switch, Route} from "react-router-dom";
 import "../css/DetailsPage.css";
 
@@ -78,7 +77,19 @@ class DetailsPage extends Component {
               <Route
                 path={`${this.props.match.path}/comments`}
                 render={() => (
-                  <AllComments movieDetails={this.state.movieDetails} />
+                  <CommentPanel
+                    movieDetails={this.state.movieDetails}
+                    filter={"ALL"}
+                  />
+                )}
+              />
+              <Route
+                path={`${this.props.match.path}/reviews`}
+                render={() => (
+                  <ReviewPanel
+                    movieDetails={this.state.movieDetails}
+                    filter={"ALL"}
+                  />
                 )}
               />
             </Switch>

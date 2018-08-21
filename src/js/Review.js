@@ -1,25 +1,58 @@
 import React from "react";
 
-const Review = props => (
-  <div className="py-5 border-bottom">
-    <div className="row description">
-      <img
-        src={props.details.author.avatar}
-        alt=""
-        className="rounded-circle ml-4"
-      />
-      <span className="col-sm-3 align-self-center">
-        {props.details.author.name}
-      </span>
-      <span className="col-sm-2 align-self-center">
-        {"评分  " + props.details.rating.value * 2}
-      </span>
-      <span className="col-sm-auto align-self-center">
-        {props.details.title}
-      </span>
-    </div>
-    <p className="lead my-3">{props.details.summary}</p>
-  </div>
-);
+class Review extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isUnfolded: false
+    };
+  }
+
+  unfold() {
+    this.setState({isUnfolded: true});
+  }
+
+  fold() {
+    this.setState({isUnfolded: false});
+  }
+
+  render() {
+    return (
+      <div className="my-5 border-bottom">
+        <div className="row description">
+          <img
+            src={this.props.details.author.avatar}
+            alt=""
+            className="rounded-circle ml-4"
+          />
+          <span className="col-sm-3 align-self-center">
+            {this.props.details.author.name}
+          </span>
+          <span className="col-sm-2 align-self-center">
+            {"评分  " + this.props.details.rating.value * 2}
+          </span>
+          <span className="col-sm-auto align-self-center">
+            {this.props.details.title}
+          </span>
+        </div>
+        {!this.state.isUnfolded ? (
+          <p id="summary" className="lead my-3">
+            {this.props.details.summary}
+            <span onClick={this.unfold.bind(this)} className="foldAndUnfold">
+              （展开）
+            </span>
+          </p>
+        ) : (
+          <p id="content" className="lead my-3">
+            {this.props.details.content}
+            <span onClick={this.fold.bind(this)} className="foldAndUnfold">
+              （收起）
+            </span>
+          </p>
+        )}
+      </div>
+    );
+  }
+}
 
 export default Review;
