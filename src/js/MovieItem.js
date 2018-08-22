@@ -16,6 +16,7 @@ const MovieItem = props => (
         className="float-md-left mx-auto my-3 image"
         alt=""
         src={props.movieDetails.images.small}
+        referrerPolicy="no-referrer"
       />
     </Link>
     <div className="details col-md-7 my-3">

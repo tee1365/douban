@@ -75,7 +75,7 @@ class DetailsPage extends Component {
                 )}
               />
               <Route
-                path={`${this.props.match.path}/comments`}
+                path={this.props.match.path + "/comments"}
                 render={() => (
                   <CommentPanel
                     movieDetails={this.state.movieDetails}
@@ -84,7 +84,7 @@ class DetailsPage extends Component {
                 )}
               />
               <Route
-                path={`${this.props.match.path}/reviews`}
+                path={this.props.match.path + "/reviews"}
                 render={() => (
                   <ReviewPanel
                     movieDetails={this.state.movieDetails}

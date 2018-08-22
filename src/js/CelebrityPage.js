@@ -2,6 +2,8 @@ import React from "react";
 import fetchJsonp from "fetch-jsonp";
 import WaitingPage from "./WaitingPage";
 import CelebrityPageDescription from "./CelebrityPageDescription";
+import {Switch, Route} from "react-router-dom";
+import PhotoPanel from "./PhotoPanel";
 
 class CelebrityPage extends React.Component {
   constructor(props) {
@@ -31,11 +33,24 @@ class CelebrityPage extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container px-5">
         {this.state.isSecond ? (
-          <CelebrityPageDescription
-            celebrityDetails={this.state.celebrityDetails}
-          />
+          <div>
+            <CelebrityPageDescription
+              celebrityDetails={this.state.celebrityDetails}
+            />
+            <Switch>
+              <Route
+                path={this.props.match.path}
+                exact
+                render={() => (
+                  <div>
+                    <PhotoPanel id={this.state.celebrityDetails.id}/>
+                  </div>
+                )}
+              />
+            </Switch>
+          </div>
         ) : (
           <WaitingPage />
         )}
