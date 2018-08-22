@@ -5,7 +5,7 @@ import WaitingPage from "./WaitingPage";
 import CommentPanel from "./CommentPanel";
 import ReviewPanel from "./ReviewPanel";
 import {Switch, Route} from "react-router-dom";
-import "../css/DetailsPage.css";
+import "../css/Description.css";
 
 /*
 title

@@ -20,7 +20,8 @@ React数据获取为什么一定要在componentDidMount里面调用？
 4.  github pages 动态路由 刷新404
     没找到解决方法
 
-5.  每个演员都包一层link
+5.  豆瓣禁止访问图片
+    img标签内加上referrerPolicy="no-referrer"
 
 ## todo
 
@@ -29,5 +30,3 @@ React数据获取为什么一定要在componentDidMount里面调用？
 2.  右下角返回顶部，返回上一页 -
 
 3.  使用一种适合react的css
-
-正在修改celebrityLink

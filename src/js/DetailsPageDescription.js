@@ -1,20 +1,26 @@
 import React from "react";
-import {Link} from "react-router-dom";
 import CelebrityLink from "./CelebrityLink";
 
 const DetailsPageDescription = props => {
-  let casts = props.movieDetails.casts
-    .map(v => v.name)
-    .map((name, index) => (
-      <CelebrityLink
-        name={name}
-        length={props.movieDetails.casts.length}
-        index={index}
-        key={index}
-      />
-    ));
+  let casts = props.movieDetails.casts.map((cast, index) => (
+    <CelebrityLink
+      name={cast.name}
+      length={props.movieDetails.casts.length}
+      id={cast.id}
+      index={index}
+      key={index}
+    />
+  ));
 
-  console.log(casts);
+  let directors = props.movieDetails.directors.map((director, index) => (
+    <CelebrityLink
+      name={director.name}
+      length={props.movieDetails.directors.length}
+      id={director.id}
+      index={index}
+      key={index}
+    />
+  ));
 
   return (
     <div className="row pt-5">
@@ -40,9 +46,9 @@ const DetailsPageDescription = props => {
         </p>
         <p>{"上映时间：" + props.movieDetails.pubdates.join(" / ")}</p>
         <p>
-          {"导演：" + props.movieDetails.directors.map(v => v.name).join(" / ")}
+          <span>{"导演："}</span>
+          <span>{directors}</span>
         </p>
-        {/*<p>{"主演：" + props.movieDetails.casts.map(v => v.name).join(" / ")}</p>*/}
         <p>
           <span>{"主演："}</span>
           <span>{casts}</span>
