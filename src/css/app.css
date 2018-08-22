@@ -9,3 +9,8 @@
 ul {
   margin-bottom: 0;
 }
+
+.poster {
+  height: 240px;
+  width: 160px;
+}

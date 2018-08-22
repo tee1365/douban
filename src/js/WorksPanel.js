@@ -36,9 +36,9 @@ class WorksPanel extends React.Component {
       .then(response => response.json())
       .then(data => {
         let stateCopy = JSON.parse(JSON.stringify(this.state));
-        let length = data.count / 3;
+        let length = data.count / 5;
         while (length > 0) {
-          stateCopy.worksList.push([...data.works.splice(0, 3)]);
+          stateCopy.worksList.push([...data.works.splice(0, 5)]);
           length--;
         }
         stateCopy.pageNumber++;
@@ -58,24 +58,35 @@ class WorksPanel extends React.Component {
       .slice(0, 1)
       .map((value, index) => <WorkRow array={value} key={index} />);
 
+    let allWorks = this.state.worksList.map((value, index) => (
+      <WorkRow array={value} key={index} />
+    ));
+
     return (
-      <div>
+      <div className="border-bottom mx-3 mt-4">
         {this.state.isSecond ? (
           <div>
             {this.props.filter === "SHORT" ? (
               <div>
                 <p className="mt-3">
                   <span className="h3">{"影人作品"}</span>
-                  <Link
-                    to={"/celebrity/" + this.props.id + "/works"}
-                    className=""
-                  >
+                  <Link to={"/celebrity/" + this.props.id + "/works"}>
                     <span className="h3 float-right">{"查看更多"}</span>
                   </Link>
                 </p>
                 <div>{shortWorks}</div>
               </div>
-            ) : null}
+            ) : (
+              <div>
+                <p className="mt-3">
+                  <span className="h3">{"影人作品"}</span>
+                  <Link to={"/celebrity/" + this.props.id}>
+                    <span className="h3 float-right">{"返回影人首页"}</span>
+                  </Link>
+                </p>
+                <div>{allWorks}</div>
+              </div>
+            )}
           </div>
         ) : null}
       </div>
