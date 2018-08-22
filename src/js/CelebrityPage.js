@@ -4,6 +4,7 @@ import WaitingPage from "./WaitingPage";
 import CelebrityPageDescription from "./CelebrityPageDescription";
 import {Switch, Route} from "react-router-dom";
 import PhotoPanel from "./PhotoPanel";
+import WorksPanel from "./WorksPanel";
 
 class CelebrityPage extends React.Component {
   constructor(props) {
@@ -48,6 +49,11 @@ class CelebrityPage extends React.Component {
                     <PhotoPanel
                       id={this.state.celebrityDetails.id}
                       filter="SHORT"
+                      type="CELEBRITY"
+                    />
+                    <WorksPanel
+                      id={this.state.celebrityDetails.id}
+                      filter="SHORT"
                     />
                   </div>
                 )}
@@ -56,6 +62,16 @@ class CelebrityPage extends React.Component {
                 path={this.props.match.path + "/photos"}
                 render={() => (
                   <PhotoPanel
+                    id={this.state.celebrityDetails.id}
+                    filter="ALL"
+                    type="CELEBRITY"
+                  />
+                )}
+              />
+              <Route
+                path={this.props.match.path + "/works"}
+                render={() => (
+                  <WorksPanel
                     id={this.state.celebrityDetails.id}
                     filter="ALL"
                   />

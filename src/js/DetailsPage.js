@@ -4,6 +4,7 @@ import DetailsPageDescription from "./DetailsPageDescription";
 import WaitingPage from "./WaitingPage";
 import CommentPanel from "./CommentPanel";
 import ReviewPanel from "./ReviewPanel";
+import PhotoPanel from "./PhotoPanel";
 import {Switch, Route} from "react-router-dom";
 import "../css/Description.css";
 
@@ -63,6 +64,10 @@ class DetailsPage extends Component {
                 exact
                 render={() => (
                   <div>
+                    <PhotoPanel
+                      id={this.state.movieDetails.id}
+                      filter={"SHORT"}
+                    />
                     <CommentPanel
                       movieDetails={this.state.movieDetails}
                       filter={"SHORT"}
@@ -70,6 +75,7 @@ class DetailsPage extends Component {
                     <ReviewPanel
                       movieDetails={this.state.movieDetails}
                       filter={"SHORT"}
+                      type="MOVIE"
                     />
                   </div>
                 )}
@@ -89,6 +95,16 @@ class DetailsPage extends Component {
                   <ReviewPanel
                     movieDetails={this.state.movieDetails}
                     filter={"ALL"}
+                  />
+                )}
+              />
+              <Route
+                path={this.props.match.path + "/photos"}
+                render={() => (
+                  <PhotoPanel
+                    id={this.state.movieDetails.id}
+                    filter={"ALL"}
+                    type="MOVIE"
                   />
                 )}
               />

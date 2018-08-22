@@ -11,7 +11,7 @@ props
 const MovieItem = props => (
   <li className="row border-bottom">
     <p className="display-4 col-md-2">{props.index + 1 + "."}</p>
-    <Link to={"/details?id=" + props.movieDetails.id} className="col-md-3">
+    <Link to={"/details/" + props.movieDetails.id} className="col-md-3">
       <img
         className="float-md-left mx-auto my-3 image"
         alt=""

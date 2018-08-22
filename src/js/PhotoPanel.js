@@ -24,15 +24,34 @@ class PhotoPanel extends React.Component {
   fetchData() {
     let baseUrl = "https://api.douban.com";
     let key = "apikey=0df993c66c0c636e29ecbb5344252a4a";
-    let start = "start=" + this.state.pageNumber * count + "&count=" + count;
-    let url =
-      baseUrl +
-      "/v2/movie/celebrity/" +
-      this.props.id +
-      "/photos?" +
-      start +
-      "&" +
-      key;
+    let start = "";
+    let url = "";
+    if (this.props.type === "CELEBRITY") {
+      start = "start=" + this.state.pageNumber * count + "&count=" + count;
+      url =
+        baseUrl +
+        "/v2/movie/celebrity/" +
+        this.props.id +
+        "/photos?" +
+        start +
+        "&" +
+        key;
+    } else {
+      start =
+        "start=" +
+        this.state.pageNumber * count +
+        "&count=" +
+        (this.state.pageNumber * count + 15);
+      url =
+        baseUrl +
+        "/v2/movie/subject/" +
+        this.props.id +
+        "/photos?" +
+        start +
+        "&" +
+        key;
+    }
+
     fetchJsonp(url)
       .then(response => response.json())
       .then(data => {
@@ -47,9 +66,7 @@ class PhotoPanel extends React.Component {
           stateCopy.isAll = true;
         }
         stateCopy.isSecond = true;
-        this.setState(stateCopy, () => {
-          console.log(this.state);
-        });
+        this.setState(stateCopy);
       })
       .catch(e => console.error(e));
   }
@@ -64,47 +81,94 @@ class PhotoPanel extends React.Component {
     ));
 
     return (
-      <div className="d-flex justify-content-between mb-3 border-bottom">
+      <div className="d-flex justify-content-between mb-3 border-bottom mx-3">
         {this.state.isSecond ? (
           <div>
-            {this.props.filter === "SHORT" ? (
+            {this.props.type === "CELEBRITY" ? (
               <div>
-                <p className="mt-3">
-                  <span className="h3">{"影人图片"}</span>
-                  <Link
-                    to={"/celebrity/" + this.props.id + "/photos"}
-                    className=""
-                  >
-                    <span className="h3 float-right">{"查看更多"}</span>
-                  </Link>
-                </p>
-                <div>{shortPhotos}</div>
+                {this.props.filter === "SHORT" ? (
+                  <div>
+                    <p className="mt-3">
+                      <span className="h3">{"影人图片"}</span>
+                      <Link
+                        to={"/celebrity/" + this.props.id + "/photos"}
+                        className=""
+                      >
+                        <span className="h3 float-right">{"查看更多"}</span>
+                      </Link>
+                    </p>
+                    <div>{shortPhotos}</div>
+                  </div>
+                ) : (
+                  <div>
+                    <p className="mt-3">
+                      <span className="h3">{"影人图片"}</span>
+                      <Link
+                        to={"/celebrity/" + this.props.id}
+                        className="float-right"
+                      >
+                        <span className="h3">{"返回影人主页"}</span>
+                      </Link>
+                    </p>
+                    <div className="pb-3">{allPhotos}</div>
+                    <div className="row">
+                      {this.state.isAll ? (
+                        <p className="mx-auto">以上为全部图片</p>
+                      ) : (
+                        <button
+                          type="button"
+                          className="btn btn-primary mx-auto mb-4"
+                          onClick={this.fetchData.bind(this)}
+                        >
+                          加载更多
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                )}
               </div>
             ) : (
               <div>
-                <p className="mt-3">
-                  <span className="h3">{"影人图片"}</span>
-                  <Link
-                    to={"/celebrity/" + this.props.id}
-                    className="float-right"
-                  >
-                    <span className="h3">{"返回影人主页"}</span>
-                  </Link>
-                </p>
-                <div className="pb-3">{allPhotos}</div>
-                <div className="row">
-                  {this.state.isAll ? (
-                    <p className="mx-auto">以上为全部图片</p>
-                  ) : (
-                    <button
-                      type="button"
-                      className="btn btn-primary mx-auto mb-4"
-                      onClick={this.fetchData.bind(this)}
-                    >
-                      加载更多
-                    </button>
-                  )}
-                </div>
+                {this.props.filter === "SHORT" ? (
+                  <div>
+                    <p className="mt-3">
+                      <span className="h3">{"电影剧照"}</span>
+                      <Link
+                        to={"/details/" + this.props.id + "/photos"}
+                        className=""
+                      >
+                        <span className="h3 float-right">{"查看更多"}</span>
+                      </Link>
+                    </p>
+                    <div>{shortPhotos}</div>
+                  </div>
+                ) : (
+                  <div>
+                    <p className="mt-3">
+                      <span className="h3">{"电影剧照"}</span>
+                      <Link
+                        to={"/details/" + this.props.id}
+                        className="float-right"
+                      >
+                        <span className="h3">{"返回电影主页"}</span>
+                      </Link>
+                    </p>
+                    <div className="pb-3">{allPhotos}</div>
+                    <div className="row">
+                      {this.state.isAll ? (
+                        <p className="mx-auto">以上为全部图片</p>
+                      ) : (
+                        <button
+                          type="button"
+                          className="btn btn-primary mx-auto mb-4"
+                          onClick={this.fetchData.bind(this)}
+                        >
+                          加载更多
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                )}
               </div>
             )}
           </div>

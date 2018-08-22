@@ -30,3 +30,5 @@ React数据获取为什么一定要在componentDidMount里面调用？
 2.  右下角返回顶部，返回上一页 -
 
 3.  使用一种适合react的css
+
+4.  图片点击出大图
