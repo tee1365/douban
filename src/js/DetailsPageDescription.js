@@ -25,7 +25,7 @@ const DetailsPageDescription = props => {
   return (
     <div className="row pt-5">
       <img
-        className="mx-auto mb-5"
+        className="mx-3 mb-5"
         src={props.movieDetails.images.large}
         alt=""
         referrerPolicy="no-referrer"

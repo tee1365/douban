@@ -45,8 +45,20 @@ class CelebrityPage extends React.Component {
                 exact
                 render={() => (
                   <div>
-                    <PhotoPanel id={this.state.celebrityDetails.id}/>
+                    <PhotoPanel
+                      id={this.state.celebrityDetails.id}
+                      filter="SHORT"
+                    />
                   </div>
+                )}
+              />
+              <Route
+                path={this.props.match.path + "/photos"}
+                render={() => (
+                  <PhotoPanel
+                    id={this.state.celebrityDetails.id}
+                    filter="ALL"
+                  />
                 )}
               />
             </Switch>

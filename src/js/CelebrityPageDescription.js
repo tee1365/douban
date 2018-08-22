@@ -5,7 +5,7 @@ const CelebrityPageDescription = props => (
   <div className="border-bottom pt-4">
     <div className="row">
       <img
-        className="mx-auto mb-5"
+        className="mx-3 mb-5"
         src={props.celebrityDetails.avatars.small}
         alt=""
         referrerPolicy="no-referrer"

@@ -52,7 +52,7 @@ class ReviewPanel extends Component {
     ));
 
     return (
-      <div className="pb-5">
+      <div className="pb-5 mx-3">
         {this.props.filter === "SHORT" ? (
           <div>
             <span className="h3">
