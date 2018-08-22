@@ -46,9 +46,7 @@ class WorksPanel extends React.Component {
           stateCopy.isAll = true;
         }
         stateCopy.isSecond = true;
-        this.setState(stateCopy, () => {
-          console.log(this.state);
-        });
+        this.setState(stateCopy);
       })
       .catch(e => console.error(e));
   }

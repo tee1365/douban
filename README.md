@@ -29,6 +29,10 @@ React数据获取为什么一定要在componentDidMount里面调用？
 
 2.  右下角返回顶部，返回上一页 -
 
-3.  使用一种适合react的css
+3.  使用一种适合react的css(现在import css的方法是create-react-app自带的) -
 
-4.  图片点击出大图
+4.  图片点击出大图(photos后再加图片id)xx  把现有的photos改为allPhotos，然后在photoPanel添加photos/id的路由
+
+5.  有的导演或演员不存在页面，取消蓝色导航
+
+正在修改photorow
