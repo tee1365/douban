@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import SearchBox from "./SearchBox";
 
 class Navbar extends Component {
@@ -9,24 +9,24 @@ class Navbar extends Component {
         <nav className="navbar fixed-top navbar-dark bg-dark">
           <ul className="navbar-nav flex-row">
             <li className="nav-item mx-3">
-              <Link className="nav-link" to="/">
+              <NavLink className="nav-link" exact to="/">
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li className="nav-item mr-3">
-              <Link className="nav-link" to="/top">
+              <NavLink className="nav-link" to="/top">
                 Top250
-              </Link>
+              </NavLink>
             </li>
             <li className="nav-item mr-3">
-              <Link className="nav-link" to="/us">
+              <NavLink className="nav-link" to="/us">
                 US Box
-              </Link>
+              </NavLink>
             </li>
             <li className="nav-item mr-3">
-              <Link className="nav-link" to="/weekly">
+              <NavLink className="nav-link" to="/weekly">
                 Weekly
-              </Link>
+              </NavLink>
             </li>
           </ul>
           <SearchBox

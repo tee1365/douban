@@ -11,6 +11,8 @@ this.setState是异步操作，不会立即更新，如果想更新完毕后执�
 
 使用在设置keys时用id代替index
 
+把navbar中的link改为navlink，有默认的选中样式
+
 ## 问题
 
 1.  搜索页面无法重置  
