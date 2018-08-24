@@ -1,13 +1,13 @@
 import React from "react";
 import {withRouter} from "react-router-dom";
-import "../css/Tools.css";
 
 const Tools = props => (
-  <div className="toolsBar">
+  <div className="Tools-bar">
     <button
       onClick={e => {
         props.history.goBack();
       }}
+      className="btn btn-primary"
     >
       <svg className="icon">
         <use xlinkHref="#icon-left" />
@@ -17,6 +17,7 @@ const Tools = props => (
       onClick={e => {
         window.scroll(0, 0);
       }}
+      className="btn btn-primary"
     >
       <svg className="icon">
         <use xlinkHref="#icon-up" />

@@ -19,7 +19,7 @@ class Review extends React.Component {
   render() {
     return (
       <div className="my-5 border-bottom">
-        <div className="row description">
+        <div className="row Review-header">
           <img
             src={this.props.details.author.avatar}
             alt=""
@@ -38,14 +38,20 @@ class Review extends React.Component {
         {!this.state.isUnfolded ? (
           <p id="summary" className="lead my-3">
             {this.props.details.summary}
-            <span onClick={this.unfold.bind(this)} className="foldAndUnfold">
+            <span
+              onClick={this.unfold.bind(this)}
+              className="Review-foldAndUnfold"
+            >
               （展开）
             </span>
           </p>
         ) : (
           <p id="content" className="lead my-3">
             {this.props.details.content}
-            <span onClick={this.fold.bind(this)} className="foldAndUnfold">
+            <span
+              onClick={this.fold.bind(this)}
+              className="Review-foldAndUnfold"
+            >
               （收起）
             </span>
           </p>

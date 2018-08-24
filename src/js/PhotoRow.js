@@ -7,7 +7,7 @@ const PhotoRow = props => {
         src={v.cover}
         alt=""
         referrerPolicy="no-referrer"
-        className="cover col-auto ml-3 mb-3"
+        className="PhotoRow-cover col-auto ml-3 mb-3"
         key={index}
       />
     );

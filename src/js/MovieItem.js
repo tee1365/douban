@@ -1,6 +1,5 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import "../css/MovieItem.css";
 
 /*
 props
@@ -13,7 +12,7 @@ const MovieItem = props => (
     <p className="display-4 col-md-2">{props.index + 1 + "."}</p>
     <Link to={"/details/" + props.movieDetails.id} className="col-md-3">
       <img
-        className="float-md-left mx-auto my-3 image"
+        className="float-md-left mx-auto my-3 MovieItem-image"
         alt=""
         src={props.movieDetails.images.small}
         referrerPolicy="no-referrer"

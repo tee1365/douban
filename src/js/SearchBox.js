@@ -16,7 +16,7 @@ const SearchBox = props => {
           }}
         />
         <div className="input-group-append">
-          <Link className="queryButton" to={queryUrl}>
+          <Link to={queryUrl}>
             <button className="btn btn-secondary" type="button">
               search
             </button>

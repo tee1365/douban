@@ -2,7 +2,6 @@ import React from "react";
 import {Link} from "react-router-dom";
 import fetchJsonp from "fetch-jsonp";
 import PhotoRow from "./PhotoRow";
-import "../css/PhotoPanel.css";
 
 const count = 15;
 
@@ -83,7 +82,7 @@ class PhotoPanel extends React.Component {
     return (
       <div className="d-flex justify-content-between mb-3 border-bottom mx-3">
         {this.state.isSecond ? (
-          <div className="header">
+          <div className="PhotoPanel-header">
             {this.props.type === "CELEBRITY" ? (
               <div>
                 {this.props.filter === "SHORT" ? (

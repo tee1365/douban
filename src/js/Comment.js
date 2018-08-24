@@ -1,9 +1,8 @@
 import React from "react";
-import "../css/Comment.css";
 
 const Comment = props => (
   <div className="my-5 border-bottom">
-    <div className="row description">
+    <div className="row Comment-header">
       <img
         src={props.details.author.avatar}
         alt=""

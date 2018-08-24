@@ -1,5 +1,4 @@
 import React from "react";
-import "../css/Description.css";
 
 const CelebrityPageDescription = props => (
   <div className="border-bottom pt-4">

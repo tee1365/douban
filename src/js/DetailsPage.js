@@ -6,7 +6,6 @@ import CommentPanel from "./CommentPanel";
 import ReviewPanel from "./ReviewPanel";
 import PhotoPanel from "./PhotoPanel";
 import {Switch, Route} from "react-router-dom";
-import "../css/Description.css";
 
 /*
 title

@@ -14,3 +14,40 @@ ul {
   height: 240px;
   width: 160px;
 }
+
+.PhotoPanel-header {
+  width: 100%;
+}
+
+.PhotoRow-cover {
+  width: 200px;
+  height: 200px;
+  padding: 0 !important;
+}
+
+.Tools-bar {
+  position: fixed;
+  right: 20px;
+  bottom: 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+.Navbar-block {
+  height: 60px;
+}
+
+.MovieItem-image {
+  height: 240px;
+  width: 160px;
+}
+
+.Review-foldAndUnfold {
+  color: #007bff;
+  cursor: pointer;
+}
+
+.Comment-header,
+.Review-header {
+  font-size: 20px;
+}
