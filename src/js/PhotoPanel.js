@@ -83,7 +83,7 @@ class PhotoPanel extends React.Component {
     return (
       <div className="d-flex justify-content-between mb-3 border-bottom mx-3">
         {this.state.isSecond ? (
-          <div>
+          <div className="header">
             {this.props.type === "CELEBRITY" ? (
               <div>
                 {this.props.filter === "SHORT" ? (

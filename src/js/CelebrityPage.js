@@ -34,7 +34,7 @@ class CelebrityPage extends React.Component {
 
   render() {
     return (
-      <div className="container px-5">
+      <div className="container">
         {this.state.isSecond ? (
           <div>
             <CelebrityPageDescription
