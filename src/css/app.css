@@ -51,3 +51,7 @@ ul {
 .Review-header {
   font-size: 20px;
 }
+
+.WorkRow-title {
+  width: 160px;
+}
