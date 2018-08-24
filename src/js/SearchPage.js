@@ -52,7 +52,6 @@ class SearchPage extends Component {
       stateCopy.movieArray = [];
       stateCopy.isSecond = false;
       this.setState(stateCopy, () => {
-        //this.setState是异步操作，不会立即更新，如果想更新完毕后执行可以写在后面的回调函数里
         this.fetchData();
       });
     }
@@ -60,12 +59,12 @@ class SearchPage extends Component {
 
   render() {
     let list = this.state.movieArray.map((detail, index) => (
-      <MovieItem key={index} index={index} movieDetails={detail} />
+      <MovieItem key={detail.id} index={index} movieDetails={detail} />
     ));
     return (
       <div className="container">
         {this.state.isSecond ? (
-          <div>
+          <React.Fragment>
             <ul>{list}</ul>
             <div className="row">
               {this.state.isAll ? (
@@ -80,7 +79,7 @@ class SearchPage extends Component {
                 </button>
               )}
             </div>
-          </div>
+          </React.Fragment>
         ) : (
           <WaitingPage />
         )}

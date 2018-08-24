@@ -44,17 +44,17 @@ class CommentPanel extends Component {
 
   render() {
     let popularComments = this.props.movieDetails.popular_comments.map(
-      (value, index) => <Comment key={index} details={value} />
+      value => <Comment key={value.id} details={value} />
     );
 
-    let allComments = this.state.commentList.map((value, index) => (
-      <Comment key={index} details={value} />
+    let allComments = this.state.commentList.map(value => (
+      <Comment key={value.id} details={value} />
     ));
 
     return (
       <div className="pb-5 mx-3">
         {this.props.filter === "SHORT" ? (
-          <div>
+          <React.Fragment>
             <span className="h3">
               {this.props.movieDetails.title}
               的短评
@@ -63,9 +63,9 @@ class CommentPanel extends Component {
               <span className="h3 float-right">查看所有短评</span>
             </Link>
             {popularComments}
-          </div>
+          </React.Fragment>
         ) : (
-          <div>
+          <React.Fragment>
             <span className="h3">
               {this.props.movieDetails.title}
               的短评
@@ -89,7 +89,7 @@ class CommentPanel extends Component {
                 )}
               </div>
             ) : null}
-          </div>
+          </React.Fragment>
         )}
       </div>
     );

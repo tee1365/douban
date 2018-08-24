@@ -8,7 +8,7 @@ const DetailsPageDescription = props => {
       length={props.movieDetails.casts.length}
       id={cast.id}
       index={index}
-      key={index}
+      key={cast.id}
     />
   ));
 
@@ -18,7 +18,7 @@ const DetailsPageDescription = props => {
       length={props.movieDetails.directors.length}
       id={director.id}
       index={index}
-      key={index}
+      key={director.id}
     />
   ));
 

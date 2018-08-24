@@ -45,16 +45,16 @@ class ReviewPanel extends Component {
   render() {
     let popularReviews = this.state.reviewList
       .slice(0, 4)
-      .map((value, index) => <Review key={index} details={value} />);
+      .map(value => <Review key={value.id} details={value} />);
 
-    let allReviews = this.state.reviewList.map((value, index) => (
-      <Review key={index} details={value} />
+    let allReviews = this.state.reviewList.map(value => (
+      <Review key={value.id} details={value} />
     ));
 
     return (
       <div className="pb-5 mx-3">
         {this.props.filter === "SHORT" ? (
-          <div>
+          <React.Fragment>
             <span className="h3">
               {this.props.movieDetails.title}
               的影评
@@ -63,9 +63,9 @@ class ReviewPanel extends Component {
               <span className="h3 float-right">查看所有影评</span>
             </Link>
             {popularReviews}
-          </div>
+          </React.Fragment>
         ) : (
-          <div>
+          <React.Fragment>
             <span className="h3">
               {this.props.movieDetails.title}
               的影评
@@ -89,7 +89,7 @@ class ReviewPanel extends Component {
                 )}
               </div>
             ) : null}
-          </div>
+          </React.Fragment>
         )}
       </div>
     );

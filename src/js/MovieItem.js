@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 props
   index
   movieDetails
+  filter
 */
 
 const MovieItem = props => (

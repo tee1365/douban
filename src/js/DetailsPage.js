@@ -55,14 +55,14 @@ class DetailsPage extends Component {
     return (
       <div className="container">
         {this.state.isSecond ? (
-          <div>
+          <React.Fragment>
             <DetailsPageDescription movieDetails={this.state.movieDetails} />
             <Switch>
               <Route
                 path={this.props.match.path}
                 exact
                 render={() => (
-                  <div>
+                  <React.Fragment>
                     <PhotoPanel
                       id={this.state.movieDetails.id}
                       filter={"SHORT"}
@@ -76,7 +76,7 @@ class DetailsPage extends Component {
                       filter={"SHORT"}
                       type="MOVIE"
                     />
-                  </div>
+                  </React.Fragment>
                 )}
               />
               <Route
@@ -108,7 +108,7 @@ class DetailsPage extends Component {
                 )}
               />
             </Switch>
-          </div>
+          </React.Fragment>
         ) : (
           <WaitingPage />
         )}

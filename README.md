@@ -3,7 +3,13 @@
 React数据获取为什么一定要在componentDidMount里面调用？
 `https://segmentfault.com/q/1010000008133309`
 
+this.setState是异步操作，不会立即更新，如果想更新完毕后执行可以写在后面的回调函数里
+
 使用svg图标时xlink:href需要写成xlinkHref
+
+可以用`<React.Fragment></React.Fragment>`来代替`<div></div>`
+
+使用在设置keys时用id代替index
 
 ## 问题
 

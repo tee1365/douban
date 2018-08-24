@@ -38,7 +38,7 @@ class USPage extends Component {
   render() {
     let list = this.state.movieArray.map((value, index) => (
       <MovieItem
-        key={index}
+        key={value.subject.id}
         index={index}
         movieDetails={value.subject}
         filter="us"
@@ -48,14 +48,13 @@ class USPage extends Component {
     return (
       <div className="container">
         {this.state.isSecond ? (
-          <div>
-            {" "}
+          <React.Fragment>
             <p className="display-4 text-center py-5">
               北美周末票房榜(
               {this.state.date})
             </p>
             <ul>{list}</ul>
-          </div>
+          </React.Fragment>
         ) : (
           <WaitingPage />
         )}

@@ -35,15 +35,15 @@ class WeeklyPage extends Component {
     let list = this.state.movieArray
       .map(v => v.subject)
       .map((detail, index) => (
-        <MovieItem key={index} index={index} movieDetails={detail} />
+        <MovieItem key={detail.id} index={index} movieDetails={detail} />
       ));
     return (
       <div className="container">
         {this.state.isSecond ? (
-          <div>
+          <React.Fragment>
             <p className="display-4 text-center py-5">一周口碑榜</p>
             <ul>{list}</ul>
-          </div>
+          </React.Fragment>
         ) : (
           <WaitingPage />
         )}

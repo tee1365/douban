@@ -36,7 +36,7 @@ class CelebrityPage extends React.Component {
     return (
       <div className="container">
         {this.state.isSecond ? (
-          <div>
+          <React.Fragment>
             <CelebrityPageDescription
               celebrityDetails={this.state.celebrityDetails}
             />
@@ -78,7 +78,7 @@ class CelebrityPage extends React.Component {
                 )}
               />
             </Switch>
-          </div>
+          </React.Fragment>
         ) : (
           <WaitingPage />
         )}

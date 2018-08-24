@@ -56,12 +56,12 @@ class Top250Page extends Component {
 
   render() {
     let list = this.state.movieArray.map((detail, index) => (
-      <MovieItem key={index} index={index} movieDetails={detail} filter="top" />
+      <MovieItem key={detail.id} index={index} movieDetails={detail} />
     ));
     return (
       <div className="container">
         {this.state.isSecond ? (
-          <div>
+          <React.Fragment>
             <p className="display-4 text-center py-5">豆瓣TOP250榜单</p>
             <ul>{list}</ul>
             <div className="row">
@@ -77,7 +77,7 @@ class Top250Page extends Component {
                 </button>
               )}
             </div>
-          </div>
+          </React.Fragment>
         ) : (
           <WaitingPage />
         )}

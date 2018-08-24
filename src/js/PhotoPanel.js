@@ -84,9 +84,9 @@ class PhotoPanel extends React.Component {
         {this.state.isSecond ? (
           <div className="PhotoPanel-header">
             {this.props.type === "CELEBRITY" ? (
-              <div>
+              <React.Fragment>
                 {this.props.filter === "SHORT" ? (
-                  <div>
+                  <React.Fragment>
                     <p className="mt-3">
                       <span className="h3">{"影人图片"}</span>
                       <Link
@@ -96,10 +96,10 @@ class PhotoPanel extends React.Component {
                         <span className="h3 float-right">{"查看更多"}</span>
                       </Link>
                     </p>
-                    <div>{shortPhotos}</div>
-                  </div>
+                    {shortPhotos}
+                  </React.Fragment>
                 ) : (
-                  <div>
+                  <React.Fragment>
                     <p className="mt-3">
                       <span className="h3">{"影人图片"}</span>
                       <Link
@@ -123,13 +123,13 @@ class PhotoPanel extends React.Component {
                         </button>
                       )}
                     </div>
-                  </div>
+                  </React.Fragment>
                 )}
-              </div>
+              </React.Fragment>
             ) : (
-              <div>
+              <React.Fragment>
                 {this.props.filter === "SHORT" ? (
-                  <div>
+                  <React.Fragment>
                     <p className="mt-3">
                       <span className="h3">{"电影剧照"}</span>
                       <Link
@@ -139,10 +139,10 @@ class PhotoPanel extends React.Component {
                         <span className="h3 float-right">{"查看更多"}</span>
                       </Link>
                     </p>
-                    <div>{shortPhotos}</div>
-                  </div>
+                    {shortPhotos}
+                  </React.Fragment>
                 ) : (
-                  <div>
+                  <React.Fragment>
                     <p className="mt-3">
                       <span className="h3">{"电影剧照"}</span>
                       <Link
@@ -166,9 +166,9 @@ class PhotoPanel extends React.Component {
                         </button>
                       )}
                     </div>
-                  </div>
+                  </React.Fragment>
                 )}
-              </div>
+              </React.Fragment>
             )}
           </div>
         ) : null}

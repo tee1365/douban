@@ -2,8 +2,8 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 const WorkRow = props => {
-  let row = props.array.map(v => v.subject).map((v, index) => (
-    <div key={index} className="WorkRow-title">
+  let row = props.array.map(v => v.subject).map(v => (
+    <div key={v.id} className="WorkRow-title">
       <Link to={"/details/" + v.id}>
         <img
           src={v.images.small}

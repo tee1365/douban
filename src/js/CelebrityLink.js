@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 const CelebrityLink = props => (
-  <span>
+  <React.Fragment>
     {props.id ? (
       <Link to={"/celebrity/" + props.id}>
         <span>{props.name}</span>
@@ -13,7 +13,7 @@ const CelebrityLink = props => (
     <span>
       {props.index + 1 !== props.length ? <span>{" / "}</span> : null}
     </span>
-  </span>
+  </React.Fragment>
 );
 
 export default CelebrityLink;

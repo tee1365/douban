@@ -63,9 +63,9 @@ class WorksPanel extends React.Component {
     return (
       <div className="border-bottom mx-3 mt-4">
         {this.state.isSecond ? (
-          <div>
+          <React.Fragment>
             {this.props.filter === "SHORT" ? (
-              <div>
+              <React.Fragment>
                 <p className="mt-3">
                   <span className="h3">{"影人作品"}</span>
                   <Link to={"/celebrity/" + this.props.id + "/works"}>
@@ -73,9 +73,9 @@ class WorksPanel extends React.Component {
                   </Link>
                 </p>
                 <div>{shortWorks}</div>
-              </div>
+              </React.Fragment>
             ) : (
-              <div>
+              <React.Fragment>
                 <p className="mt-3">
                   <span className="h3">{"影人作品"}</span>
                   <Link to={"/celebrity/" + this.props.id}>
@@ -83,9 +83,9 @@ class WorksPanel extends React.Component {
                   </Link>
                 </p>
                 <div>{allWorks}</div>
-              </div>
+              </React.Fragment>
             )}
-          </div>
+          </React.Fragment>
         ) : null}
       </div>
     );
