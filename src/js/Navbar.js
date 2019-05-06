@@ -3,6 +3,19 @@ import {NavLink} from "react-router-dom";
 import SearchBox from "./SearchBox";
 
 class Navbar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      query: ""
+    };
+  }
+
+  queryChange = (e) => {
+    let stateCopy = JSON.parse(JSON.stringify(this.state));
+    stateCopy.query = e.target.value;
+    this.setState(stateCopy);
+  }
+
   render() {
     return (
       <header>
@@ -30,8 +43,8 @@ class Navbar extends Component {
             </li>
           </ul>
           <SearchBox
-            queryChange={this.props.queryChange.bind(this)}
-            query={this.props.query}
+            queryChange={this.queryChange}
+            query={this.state.query}
           />
         </nav>
         <div className="Navbar-block" />

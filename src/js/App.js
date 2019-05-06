@@ -17,26 +17,10 @@ APP
 */
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      query: ""
-    };
-  }
-
-  queryChange(e) {
-    let stateCopy = JSON.parse(JSON.stringify(this.state));
-    stateCopy.query = e.target.value;
-    this.setState(stateCopy);
-  }
-
   render() {
     return (
       <div className="App">
-        <Navbar
-          queryChange={this.queryChange.bind(this)}
-          query={this.state.query}
-        />
+        <Navbar />
         <RouterPage />
         <Tools />
       </div>
